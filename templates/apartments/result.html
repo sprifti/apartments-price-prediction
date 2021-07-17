@@ -1,0 +1,17 @@
+{% extends "apartments/home.html" %}
+{% load crispy_forms_filters %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <h1 style="margin-top:8%; margin-bottom:2%">Apartment Price Prediction</h1>
+        {% csrf_token %}
+        {{ f|crispy }}
+        <form action="{% url 'save_predicted_price' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Save Result</button>
+        </form>
+    </div>
+{% endblock content %}
