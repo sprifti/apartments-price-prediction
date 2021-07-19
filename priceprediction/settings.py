@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import mimetypes
+import django_heroku
 
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -71,6 +72,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'priceprediction.wsgi.application'
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
